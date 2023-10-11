@@ -1,5 +1,5 @@
 '''[Midterm 2023] Lift'''
-def lift(people, macweight, safe, cal):
+def lift(people, macweight, cal, kid, adult):
     '''[Midterm 2023] Lift'''
 
     for _ in range(people):
@@ -7,18 +7,15 @@ def lift(people, macweight, safe, cal):
         weight = float(input())
         cal += weight
         if age >= 12:
-            safe = 1
-            if cal <= macweight:
-                safe = 1
-            else:
-                safe = 0
-            continue
+            adult += 1
         else:
-            safe = 0
+            kid += 1
 
-    if safe == 1:
-        print("Safe")
-    elif safe == 0:
+    if kid >= 1 and adult == 0:
         print("Not Safe")
+    elif cal > macweight:
+        print("Not Safe")
+    else:
+        print("Safe")
 
-lift(int(input()), float(input()), 0, 0)
+lift(int(input()), float(input()), 0, 0, 0)
